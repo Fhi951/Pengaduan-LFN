@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #e8f1ff, #f9fbff);
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(90deg, #0a3d62, #1e90ff);
+    color: white;
+    padding: 18px 30px;
+    font-weight: 600;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 420px;
+    margin: 60px auto;
+    padding: 0 15px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FORM */
+label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    background: linear-gradient(90deg, #1e90ff, #0a3d62);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+/* MENU DASHBOARD */
+.menu {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.menu a {
+    background: #f4f8ff;
+    padding: 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #0a3d62;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background: #e1edff;
+    transform: translateY(-3px);
+}
+table {
+    font-size: 15px;
+}
+
+table th, table td {
+    padding: 14px 12px;
+}
+
+.container {
+    max-width: 1100px;
+}
+
+.card {
+    padding: 30px;
+}
