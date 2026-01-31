@@ -1,11 +1,21 @@
 <?php
 session_start();
+
+require_once __DIR__ . "/../config/database.php";
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../auth/login.php");
     exit;
 }
 ?>
-<link rel="stylesheet" href="../assets/css/style.css">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
 
 <div class="header">
     <h1>Dashboard Admin — Sistem Pengaduan Masyarakat</h1>
@@ -13,7 +23,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
 <div class="container">
     <div class="card">
-        <p>Selamat datang, <b><?= $_SESSION['nama']; ?></b></p>
+        <p>Selamat datang, <b><?= $_SESSION['nama'] ?? 'Admin'; ?></b></p>
 
         <div class="menu">
             <a href="user_list.php">👥 Kelola User</a>
@@ -22,3 +32,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         </div>
     </div>
 </div>
+
+</body>
+</html>

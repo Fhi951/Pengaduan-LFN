@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../config/database.php";
+require_once __DIR__ . "/../config/database.php";
 
 if ($_SESSION['role'] != 'user') {
     header("Location: ../auth/login.php");
@@ -28,7 +28,8 @@ if (isset($_POST['kirim'])) {
 <div class="container">
 <div class="card">
 
-<form method="post">
+<form method="POST" onsubmit="notif('Pengaduan berhasil dikirim!')">
+
     <label>Judul Pengaduan</label>
     <input type="text" name="judul" required>
 
@@ -40,3 +41,4 @@ if (isset($_POST['kirim'])) {
 
 </div>
 </div>
+<?php include "../partials/footer.php"; ?>

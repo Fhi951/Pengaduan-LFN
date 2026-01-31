@@ -1,21 +1,18 @@
 <?php
 session_start();
-include "../config/database.php";
+require_once __DIR__ . "/../config/database.php";
 
-/* Proteksi halaman admin */
 if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
     header("Location: ../auth/login.php");
     exit;
 }
 
-/* Otomatis ubah status jadi Dilihat */
 mysqli_query($conn, "
     UPDATE pengaduan 
     SET status='Dilihat'
     WHERE status='Terkirim'
 ");
 
-/* Ambil semua pengaduan + nama user */
 $data = mysqli_query($conn, "
     SELECT 
         pengaduan.judul,
@@ -37,7 +34,7 @@ $data = mysqli_query($conn, "
 
 <h3>Daftar Pengaduan Masuk</h3>
 
-<table>
+<table class="table table-bordered table-striped">
 <tr>
     <th>Nama Pengadu</th>
     <th>Judul Pengaduan</th>
@@ -57,7 +54,13 @@ $data = mysqli_query($conn, "
 <tr>
     <td><?= $p['nama']; ?></td>
     <td><?= $p['judul']; ?></td>
-    <td><?= $p['status']; ?></td>
+    <td>
+    <?php if ($p['status'] == 'Terkirim') { ?>
+        <span class="badge bg-info">Terkirim</span>
+    <?php } else { ?>
+        <span class="badge bg-success">Dilihat</span>
+    <?php } ?>
+</td>
     <td><?= date('d M Y H:i', strtotime($p['created_at'])); ?></td>
 </tr>
 <?php } ?>
@@ -70,3 +73,4 @@ $data = mysqli_query($conn, "
 
 </div>
 </div>
+<?php include "../partials/footer.php"; ?>

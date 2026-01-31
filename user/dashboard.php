@@ -1,7 +1,10 @@
 <?php
 session_start();
+require_once __DIR__ . "/../config/database.php";
+
 if ($_SESSION['role'] != 'user') {
     header("Location: ../auth/login.php");
+    exit;
 }
 ?>
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -19,3 +22,4 @@ if ($_SESSION['role'] != 'user') {
     <a href="tracking.php">📊 Tracking Pengaduan</a>
     <a href="../auth/logout.php">🚪 Logout</a>
 </div>
+<?php include "../partials/footer.php"; ?>

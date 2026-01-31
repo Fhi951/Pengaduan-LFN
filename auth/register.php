@@ -1,5 +1,5 @@
 <?php
-include "../config/database.php";
+require_once __DIR__ . "/../config/database.php";
 
 if (isset($_POST['daftar'])) {
     $nama = $_POST['nama'];

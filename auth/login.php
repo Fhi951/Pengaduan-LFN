@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../config/database.php";
+require_once __DIR__ . "/../config/database.php";
 
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -56,3 +56,4 @@ if (isset($_POST['login'])) {
         </p>
     </div>
 </div>
+<?php include "../partials/footer.php"; ?>
